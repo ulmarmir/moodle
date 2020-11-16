@@ -104,7 +104,8 @@ $personalcontext = context_user::instance($user->id);
 if ($user->id == $USER->id) {
     // Editing own profile - require_login() MUST NOT be used here, it would result in infinite loop!
     if (!has_capability('moodle/user:editownprofile', $systemcontext)) {
-        print_error('cannotedityourprofile');
+        $return = new moodle_url('/user/profile.php', array());
+        print_error('cannotedityourprofile','error',$return);
     }
 
 } else {
