@@ -105,7 +105,7 @@ if ($user->id == $USER->id) {
     // Editing own profile - require_login() MUST NOT be used here, it would result in infinite loop!
     if (!has_capability('moodle/user:editownprofile', $systemcontext)) {
         $return = new moodle_url('/user/profile.php', array());
-        print_error('cannotedityourprofile','error',$return);
+        print_error('cannotedityourprofile', 'error', $return);
     }
 
 } else {
